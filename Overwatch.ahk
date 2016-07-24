@@ -5,6 +5,7 @@ RTimerGoing = 0
 ShiftTimerGoing = 0
 Hero = "Unassigned"
 
+
 #1::
 ;battle.net password
 SendRaw UpdateScriptWithYourPWIfYouWouldLike
@@ -86,6 +87,20 @@ ShiftCoolDown := -1
 RMBCoolDown := -1
 Return
 
+;Shift::
+XButton1::
+While GetKeyState("XButton1", "P")
+{
+	Send, {XButton1 Down}
+	KeyWait XButton1
+}
+Send {XButton1 Up}
+if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
+	ShiftTimerGoing = 1
+	SetTimer, ShiftSound, %ShiftCoolDown%
+}
+Return
+
 ;r::
 XButton2::
 if (RCoolDown <> -1 and RTimerGoing == 0) {
@@ -94,19 +109,15 @@ if (RCoolDown <> -1 and RTimerGoing == 0) {
 }
 Return
 
-;Shift::
-XButton1::
-if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
-	ShiftTimerGoing = 1
-	SetTimer, ShiftSound, %ShiftCoolDown%
-}
-Return
-
 ;RMB
 RButton::
-;if(Hero <> "Unassigned") {
-;	Click right
-;}
+While GetKeyState("RButton", "P")
+{
+	Send, {RButton Down}
+	KeyWait RButton
+}
+Send {RButton Up}
+
 if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
 	RMBTimerGoing = 1
 	SetTimer, RMBSound, %RMBCoolDown%
