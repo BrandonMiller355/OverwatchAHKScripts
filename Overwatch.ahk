@@ -14,81 +14,155 @@ FileRead, BNetPass, BNetPassword.config
 Send %BNetPass%
 Return
 
-#2::
-Hero := "Lucio"
-SoundPlay, %A_WorkingDir%\Audio\Lucio.wav
-RCoolDown := 15000
-ShiftCoolDown := -1
-RMBCoolDown := 4000
-Return
 
-#3::
-Hero := "Tracer"
-SoundPlay, %A_WorkingDir%\Audio\Tracer.wav
-RCoolDown := 13250
-;These are tricky for tracer, she can get up to 3
-ShiftCoolDown = 3000
-RMBCoolDown = 3000
-Return
-
-#4::
-Hero := "Roadhog"
-SoundPlay, %A_WorkingDir%\Audio\Roadhog.wav
-RCoolDown := 9500
-;This one's a little tricky as well. The duration of the chain depends on the distance of the target and whether it hits or not.
-ShiftCoolDown := 7500
+^G::
+Hero := "Genji"
+;SoundPlay, %A_WorkingDir%\Audio\Genji.wav
+ShiftCoolDown := 8250
+RCoolDown := 9750
 RMBCoolDown := -1
 Return
 
-#5::
+^M::
+Hero := "McCree"
+;SoundPlay, %A_WorkingDir%\Audio\McCree.wav
+ShiftCoolDown := 8250
+RCoolDown := 10250
+RMBCoolDown := -1
+Return
+
+^P::
+Hero := "Pharah"
+SoundPlay, %A_WorkingDir%\Audio\Pharah.wav
+ShiftCoolDown := 10000
+RCoolDown := 12000
+RMBCoolDown := -1
+Return
+
+^R::
+Hero := "Reaper"
+SoundPlay, %A_WorkingDir%\Audio\Reaper.wav
+;This needs to be updated so that it only triggers if the teleport is confirmed, and only after selecting confirm
+ShiftCoolDown := 12000
+RCoolDown := 13000
+RMBCoolDown := -1
+Return
+
+^S::
+Hero := "Soldier"
+SoundPlay, %A_WorkingDir%\Audio\Soldier.wav
+ShiftCoolDown := -1
+RCoolDown := 20000
+RMBCoolDown := 8000
+Return
+
+^T::
+Hero := "Tracer"
+SoundPlay, %A_WorkingDir%\Audio\Tracer.wav
+;These are tricky for tracer, she can get up to 3 warps
+ShiftCoolDown = 3000
+RCoolDown := 13250
+RMBCoolDown = 3000
+Return
+
+;Bastion is not applicable as it does not have any cooldowns
+
+^H::
+Hero := "Hanzo"
+;SoundPlay, %A_WorkingDir%\Audio\Hanzo.wav
+;Hanzo is also tricky, since you have to wait for him to fire the arrow before the timer starts
+ShiftCoolDown = 20000
+RCoolDown := 10000
+Return
+RMBCoolDown = 3000
+
+^J::
+Hero := "Junkrat"
+SoundPlay, %A_WorkingDir%\Audio\Junkrat.wav
+ShiftCoolDown := 8000
+RCoolDown := 13000
+RMBCoolDown := -1
+Return
+
+^!M::
+Hero := "Mei"
+;SoundPlay, %A_WorkingDir%\Audio\Mei.wav
+ShiftCoolDown := 16000
+RCoolDown := 10500
+RMBCoolDown := -1
+Return
+
+;I have no idea how Torbjorn's armor works, I never play him.
+
+^W::
+Hero := "Widowmaker"
+;SoundPlay, %A_WorkingDir%\Audio\Widowmaker.wav
+;Grappling hook must hit in order to actually count. There's no way for me to detect that.
+ShiftCoolDown := 13000
+RCoolDown := 16000
+RMBCoolDown := -1
+Return
+
+^D::
+Hero := "D.Va"
+;SoundPlay, %A_WorkingDir%\Audio\D.Va.wav
+ShiftCoolDown := 7000
+RCoolDown := -1
+RMBCoolDown := -1
+Return
+
+^!R::
 Hero := "Reinhardt"
 SoundPlay, %A_WorkingDir%\Audio\Reinhardt.wav
 RCoolDown := 6500
-;Also tricky. The duration of the charge is hard to predict
+;Also tricky. The duration of the charge is impossible to predict
 ShiftCoolDown := 11000
 RMBCoolDown := -1
 Return
 
-#6::
-Hero := "Pharah"
-SoundPlay, %A_WorkingDir%\Audio\Pharah.wav
-RCoolDown := 12000
-ShiftCoolDown := 10000
+^!+R::
+Hero := "Roadhog"
+SoundPlay, %A_WorkingDir%\Audio\Roadhog.wav
+;This one's a little tricky as well. The duration of the chain depends on the distance of the target and whether it hits or not.
+ShiftCoolDown := 7500
+RCoolDown := 9500
 RMBCoolDown := -1
 Return
 
-#7::
-Hero := "Reaper"
-SoundPlay, %A_WorkingDir%\Audio\Reaper.wav
-;This needs to be updated so that it only triggers if the teleport is confirmed, and only after selecting confirm
-RCoolDown := 13000
-ShiftCoolDown := 12000
+^!W::
+Hero := "Winston"
+;SoundPlay, %A_WorkingDir%\Audio\Winston.wav
+ShiftCoolDown := 6000
+RCoolDown := 19000
 RMBCoolDown := -1
 Return
 
-#8::
-Hero := "Junkrat"
-SoundPlay, %A_WorkingDir%\Audio\Junkrat.wav
-RCoolDown := 13000
-ShiftCoolDown := 8000
-RMBCoolDown := -1
-Return
+;TODO: Zarya
 
-#9::
-Hero := "Soldier"
-SoundPlay, %A_WorkingDir%\Audio\Soldier.wav
-RCoolDown := 20000
+;TODO: Ana
+
+^L::
+Hero := "Lucio"
+SoundPlay, %A_WorkingDir%\Audio\Lucio.wav
 ShiftCoolDown := -1
-RMBCoolDown := 8000
+RCoolDown := 15000
+RMBCoolDown := 4000
 Return
+
+;TODO: Mercy
+
+;TODO: Symmetra
+
+;TODO: Zenyatta
 
 #0::
-;Goal of this is to retain normal RMB functionality should you choose to go Mercy or want to right-click on a menu item
 Hero = "Unassigned"
 RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
 Return
+
+
 
 ;Shift::
 XButton1::
