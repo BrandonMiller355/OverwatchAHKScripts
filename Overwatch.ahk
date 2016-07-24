@@ -8,10 +8,10 @@ ShiftCoolDown := -1
 RMBCoolDown := -1
 Hero = "Unassigned"
 
-
-#1::
+^0::
 ;battle.net password
-SendRaw UpdateScriptWithYourPWIfYouWouldLike
+FileRead, BNetPass, BNetPassword.config
+Send %BNetPass%
 Return
 
 #2::
