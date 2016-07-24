@@ -10,7 +10,7 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
  - Proceed to play the game
 
 #Bindings:
- WIN + 0 : Set your hero as unassigned - intended to shut off hotkey functionality so heroes like Mercy will work again, until I fix the right-click bug
+ WIN + 0 : Set your hero as unassigned - intended to shut off hotkey functionality so you don't get incorrect statements on heroes I haven't added yet
  WIN + 1 : You can set this up to be your blizzard PW if, like me, it frequently doesn't remember it when logging in, and you have a long hard pw that even you don't remember
  
  Hero bindings:
@@ -24,7 +24,6 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
   WIN + 9 : Soldier
 
 #Known Issues: 
- - Right-click stops working in the usual sense. It still works for firing weapons, just not for actual right-click actions. To end the script, to regain right-click functionality. Double-click on the AHK icon in your notification bar for this script, and select File -> Exit
  - Some of the times are a tad off due to in-game fluctuations (e.g. if Roadhog's chain hits or not). There isn't really a way around this, so I approximate the time.
  - Multiple sound files have issues playing at the same time.
 
@@ -35,3 +34,4 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
  - Only make scripts active if in game, so that you can leave the script running all the time without having to worry about it messing up your usual computer usage
  - Add "E.wav" file for those people who are still using the archaic ASDW movement keys rather than SDFE.
  - Add support for when the user hits the actual Shift or "R" (or "E") button, rather than my mouse buttons
+ - Set blizzard password in separate file ignored by git. Read this in so that contributors needn't worry about accidentally sharing their password
