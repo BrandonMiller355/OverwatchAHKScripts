@@ -11,7 +11,7 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
 
 #Bindings:
  WIN + 0 : Set your hero as unassigned - intended to shut off hotkey functionality so you don't get incorrect statements on heroes I haven't added yet
- WIN + 1 : You can set this up to be your blizzard PW if, like me, it frequently doesn't remember it when logging in, and you have a long hard pw that even you don't remember
+ CTRL + 0: You can set this up to be your blizzard PW if, like me, it frequently doesn't remember it when logging in, and you have a long hard pw that even you don't remember
  
  Hero bindings:
   WIN + 2 : Lucio
@@ -34,4 +34,3 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
  - Only make scripts active if in game, so that you can leave the script running all the time without having to worry about it messing up your usual computer usage
  - Add "E.wav" file for those people who are still using the archaic ASDW movement keys rather than SDFE.
  - Add support for when the user hits the actual Shift or "R" (or "E") button, rather than my mouse buttons
- - Set blizzard password in separate file ignored by git. Read this in so that contributors needn't worry about accidentally sharing their password
