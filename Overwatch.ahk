@@ -31,7 +31,7 @@ Return
 #4::
 Hero := "Roadhog"
 SoundPlay, %A_WorkingDir%\Audio\Roadhog.wav
-RCoolDown := 9000
+RCoolDown := 9500
 ;This one's a little tricky as well. The duration of the chain depends on the distance of the target and whether it hits or not.
 ShiftCoolDown := 7500
 RMBCoolDown := -1
@@ -92,21 +92,27 @@ XButton1::
 While GetKeyState("XButton1", "P")
 {
 	Send, {XButton1 Down}
-	KeyWait XButton1
+
+	if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
+		ShiftTimerGoing = 1
+		SetTimer, ShiftSound, %ShiftCoolDown%
+	}
 }
 Send {XButton1 Up}
-if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
-	ShiftTimerGoing = 1
-	SetTimer, ShiftSound, %ShiftCoolDown%
-}
 Return
 
 ;r::
 XButton2::
-if (RCoolDown <> -1 and RTimerGoing == 0) {
-	RTimerGoing = 1
-	SetTimer, RSound, %RCoolDown%
+While GetKeyState("XButton2", "P")
+{
+	Send, {XButton2 Down}
+
+	if (RCoolDown <> -1 and RTimerGoing == 0) {
+		RTimerGoing = 1
+		SetTimer, RSound, %RCoolDown%
+	}
 }
+Send {XButton2 Up}
 Return
 
 ;RMB
@@ -114,14 +120,13 @@ RButton::
 While GetKeyState("RButton", "P")
 {
 	Send, {RButton Down}
-	KeyWait RButton
+
+	if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
+		RMBTimerGoing = 1
+		SetTimer, RMBSound, %RMBCoolDown%
+	}
 }
 Send {RButton Up}
-
-if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
-	RMBTimerGoing = 1
-	SetTimer, RMBSound, %RMBCoolDown%
-}
 Return
 
 
