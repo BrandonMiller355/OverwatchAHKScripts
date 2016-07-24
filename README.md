@@ -31,7 +31,11 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
 
 #Future enhancements:
  - More hero support, with better binding keys (e.g. CTRL + ALT + L for Lucio)
- - More dynamic hero handling. E.g. Keep track of how many blinks Tracer has available, and play "1, 2, or 3" depending
+ - More dynamic hero handling
+ 	- Keep track of how many blinks Tracer has available, and play "1, 2, or 3" depending
+ 	- Hanzo's countdown shouldn't start until he fires his arrow
+ 	- Mei's R countdown shouldn't start until she builds the wall
  - Only make scripts active if in game, so that you can leave the script running all the time without having to worry about it messing up your usual computer usage
- - Add "E.wav" file for those people who are still using the archaic ASDW movement keys rather than SDFE.
- - Add support for when the user hits the actual Shift or "R" (or "E") button, rather than my mouse buttons
+ - Add "E.wav" file for those people who are still using the archaic ASDW movement keys rather than SDFE
+ - Add support for when the user hits the actual Shift or "R" (or "E") button, rather than the mouse buttons
+ 
