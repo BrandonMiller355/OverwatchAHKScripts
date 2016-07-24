@@ -3,6 +3,9 @@
 RMBTimerGoing = 0
 RTimerGoing = 0
 ShiftTimerGoing = 0
+RCoolDown := -1
+ShiftCoolDown := -1
+RMBCoolDown := -1
 Hero = "Unassigned"
 
 
