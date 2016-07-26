@@ -14,18 +14,12 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
  WIN + 1 : You can set this up to be your blizzard PW if, like me, it frequently doesn't remember it when logging in, and you have a long hard pw that even you don't remember
  
  Hero bindings:
-  WIN + 2 : Lucio
-  WIN + 3 : Tracer
-  WIN + 4 : Roadhog
-  WIN + 5 : Reinhardt
-  WIN + 6 : Pharah
-  WIN + 7 : Reaper
-  WIN + 8 : Junkrat
-  WIN + 9 : Soldier
+  CTRL + [First letter of hero name] e.g. CTRL + J for Junkrat
+  If there are two characters starting with the same first letter: CTRL + ALT + [First letter of hero name] to select the second hero with that name
+  If there are three: CTRL + ALT + [First letter of hero name] to select the third hero with that name (e.g. McCree, Mei, Mercy)
 
 #Known Issues: 
- - Right-click stops working in the usual sense. It still works for firing weapons, just not for actual right-click actions. To end the script, to regain right-click functionality. Double-click on the AHK icon in your notification bar for this script, and select File -> Exit
- - Some of the times are a tad off due to in-game fluctuations (e.g. if Roadhog's chain hits or not). There isn't really a way around this, so I approximate the time.
+  - Some of the times are a tad off due to in-game fluctuations (e.g. if Roadhog's chain hits or not). There isn't really a way around this, so I approximate the time.
  - Multiple sound files have issues playing at the same time.
 
 
