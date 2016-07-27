@@ -1,4 +1,4 @@
-# overwatch
+#Overwatch
 These are my autohotkey scripts for Overwatch. They simply play a sound file at the appropriate time, since the in-game sounds/notifications can oft be overlooked in the heat of battle.
 
 NOTE: Blizzard has stated that so long as you don't use AHK to perform more than one in-game action, it is not considered cheating. Since these scripts do nothing in game, but rather simply perform a timer to play a sound file, these should be safe to use.
@@ -24,8 +24,8 @@ NOTE: Blizzard has stated that so long as you don't use AHK to perform more than
 
 
 #Future enhancements:
- - More hero support, with better binding keys (e.g. CTRL + ALT + L for Lucio)
- - More dynamic hero handling
+ - All hero support
+ - More dynamic hero handling:
  	- Keep track of how many blinks Tracer has available, and play "1, 2, or 3" depending
  	- Hanzo's countdown shouldn't start until he fires his arrow
  	- Mei's R countdown shouldn't start until she builds the wall
