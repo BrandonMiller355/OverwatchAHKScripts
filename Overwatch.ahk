@@ -144,7 +144,13 @@ RCoolDown := 10000
 RMBCoolDown := -1
 Return
 
-;TODO: Ana
+^A::
+Hero := "Ana"
+;SoundPlay, %A_WorkingDir%\Audio\Ana.wav
+ShiftCoolDown := 12500
+RCoolDown := 10500
+RMBCoolDown := -1
+Return
 
 ^L::
 Hero := "Lucio"
@@ -154,14 +160,22 @@ RCoolDown := 15000
 RMBCoolDown := 4000
 Return
 
-;TODO: Mercy
+^!+M::
+Hero := "Mercy"
+;SoundPlay, %A_WorkingDir%\Audio\Mercy.wav
+ShiftCoolDown := 2000
+RCoolDown := -1
+RMBCoolDown := -1
+Return
 
 ;TODO: Symmetra
+;Symmetra is tricky due to the cooldown for placing turrets constantly charging
 
-;TODO: Zenyatta
+;Zenyatta does not have cooldowns
 
 #0::
 Hero = "Unassigned"
+;SoundPlay, %A_WorkingDir%\Audio\Unassigned.wav
 RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
