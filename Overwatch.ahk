@@ -14,10 +14,9 @@ FileRead, BNetPass, BNetPassword.config
 Send %BNetPass%
 Return
 
-
 ^G::
 Hero := "Genji"
-;SoundPlay, %A_WorkingDir%\Audio\Genji.wav
+SoundPlay, %A_WorkingDir%\Audio\Genji.wav
 ShiftCoolDown := 8250
 RCoolDown := 9750
 RMBCoolDown := -1
@@ -25,7 +24,7 @@ Return
 
 ^M::
 Hero := "McCree"
-;SoundPlay, %A_WorkingDir%\Audio\McCree.wav
+SoundPlay, %A_WorkingDir%\Audio\McCree.wav
 ShiftCoolDown := 8250
 RCoolDown := 10250
 RMBCoolDown := -1
@@ -69,7 +68,7 @@ Return
 
 ^H::
 Hero := "Hanzo"
-;SoundPlay, %A_WorkingDir%\Audio\Hanzo.wav
+SoundPlay, %A_WorkingDir%\Audio\Hanzo.wav
 ;Hanzo is also tricky, since you have to wait for him to fire the arrow before the timer starts
 ShiftCoolDown = 20000
 RCoolDown := 10000
@@ -86,7 +85,7 @@ Return
 
 ^!M::
 Hero := "Mei"
-;SoundPlay, %A_WorkingDir%\Audio\Mei.wav
+SoundPlay, %A_WorkingDir%\Audio\Mei.wav
 ShiftCoolDown := 16000
 RCoolDown := 10500
 RMBCoolDown := -1
@@ -96,7 +95,7 @@ Return
 
 ^W::
 Hero := "Widowmaker"
-;SoundPlay, %A_WorkingDir%\Audio\Widowmaker.wav
+SoundPlay, %A_WorkingDir%\Audio\Widowmaker.wav
 ;Grappling hook must hit in order to actually count. There's no way for me to detect that.
 ShiftCoolDown := 13000
 RCoolDown := 16000
@@ -105,7 +104,7 @@ Return
 
 ^D::
 Hero := "D.Va"
-;SoundPlay, %A_WorkingDir%\Audio\D.Va.wav
+SoundPlay, %A_WorkingDir%\Audio\D.Va.wav
 ShiftCoolDown := 7000
 RCoolDown := -1
 RMBCoolDown := -1
@@ -131,13 +130,19 @@ Return
 
 ^!W::
 Hero := "Winston"
-;SoundPlay, %A_WorkingDir%\Audio\Winston.wav
+SoundPlay, %A_WorkingDir%\Audio\Winston.wav
 ShiftCoolDown := 6000
 RCoolDown := 19000
 RMBCoolDown := -1
 Return
 
-;TODO: Zarya
+^Z::
+Hero := "Zarya"
+SoundPlay, %A_WorkingDir%\Audio\Zarya.wav
+ShiftCoolDown := 12000
+RCoolDown := 10000
+RMBCoolDown := -1
+Return
 
 ;TODO: Ana
 
