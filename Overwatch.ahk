@@ -146,7 +146,7 @@ Return
 
 ^A::
 Hero := "Ana"
-;SoundPlay, %A_WorkingDir%\Audio\Ana.wav
+SoundPlay, %A_WorkingDir%\Audio\Ana.wav
 ShiftCoolDown := 12500
 RCoolDown := 10500
 RMBCoolDown := -1
@@ -162,7 +162,7 @@ Return
 
 ^!+M::
 Hero := "Mercy"
-;SoundPlay, %A_WorkingDir%\Audio\Mercy.wav
+SoundPlay, %A_WorkingDir%\Audio\Mercy.wav
 ShiftCoolDown := 2000
 RCoolDown := -1
 RMBCoolDown := -1
@@ -175,7 +175,7 @@ Return
 
 #0::
 Hero = "Unassigned"
-;SoundPlay, %A_WorkingDir%\Audio\Unassigned.wav
+SoundPlay, %A_WorkingDir%\Audio\Unassigned.wav
 RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
