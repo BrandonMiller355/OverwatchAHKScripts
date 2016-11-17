@@ -55,6 +55,14 @@ RCoolDown := 20000
 RMBCoolDown := 8000
 Return
 
+^!S::
+Hero := "Sombra"
+SoundPlay, %A_WorkingDir%\Audio\Sombra.wav
+ShiftCoolDown := 12000
+RCoolDown := 7000
+RMBCoolDown := 13000
+Return
+
 ^T::
 Hero := "Tracer"
 SoundPlay, %A_WorkingDir%\Audio\Tracer.wav
