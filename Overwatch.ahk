@@ -14,6 +14,12 @@ FileRead, BNetPass, BNetPassword.config
 Send %BNetPass%
 Return
 
+^9::
+;battle.net alt password
+FileRead, BNetPass, BNetPasswordAlt.config
+Send %BNetPass%
+Return
+
 ^G::
 Hero := "Genji"
 SoundPlay, %A_WorkingDir%\Audio\Genji.wav
@@ -188,6 +194,8 @@ RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
 Return
+
+
 
 
 
