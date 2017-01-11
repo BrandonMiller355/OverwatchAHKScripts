@@ -195,8 +195,9 @@ ShiftCoolDown := -1
 RMBCoolDown := -1
 Return
 
-
-
+#RButton::
+Hero := "AllowRightClick"
+Return
 
 
 ;Shift::
@@ -217,7 +218,7 @@ Return
 
 ;RMB
 RButton::
-if (Hero == "Unassigned") {
+if (Hero == "AllowRightClick") {
 	Send, {RButton}
 }
 
