@@ -6,7 +6,7 @@ ShiftTimerGoing = 0
 RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
-Hero = "Unassigned"
+Hero := "Unassigned"
 
 ^0::
 ;battle.net password
@@ -188,7 +188,7 @@ Return
 ;Zenyatta does not have cooldowns
 
 #0::
-Hero = "Unassigned"
+Hero := "Unassigned"
 SoundPlay, %A_WorkingDir%\Audio\Unassigned.wav
 RCoolDown := -1
 ShiftCoolDown := -1
@@ -217,6 +217,10 @@ Return
 
 ;RMB
 RButton::
+if (Hero == "Unassigned") {
+	Send, {RButton}
+}
+
 if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
 	RMBTimerGoing = 1
 	SetTimer, RMBSound, %RMBCoolDown%
@@ -229,7 +233,6 @@ SetTimer, RSound, Off
 RTimerGoing = 0
 SoundPlay, %A_WorkingDir%\Audio\R.wav
 Return
-
 
 ShiftSound:
 SetTimer, ShiftSound, Off
