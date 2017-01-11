@@ -201,44 +201,26 @@ Return
 
 ;Shift::
 XButton1::
-While GetKeyState("XButton1", "P")
-{
-	Send, {XButton1 Down}
-
-	if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
-		ShiftTimerGoing = 1
-		SetTimer, ShiftSound, %ShiftCoolDown%
-	}
+if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
+	ShiftTimerGoing = 1
+	SetTimer, ShiftSound, %ShiftCoolDown%
 }
-Send {XButton1 Up}
 Return
 
 ;r::
 XButton2::
-While GetKeyState("XButton2", "P")
-{
-	Send, {XButton2 Down}
-
-	if (RCoolDown <> -1 and RTimerGoing == 0) {
-		RTimerGoing = 1
-		SetTimer, RSound, %RCoolDown%
-	}
+if (RCoolDown <> -1 and RTimerGoing == 0) {
+	RTimerGoing = 1
+	SetTimer, RSound, %RCoolDown%
 }
-Send {XButton2 Up}
 Return
 
 ;RMB
 RButton::
-While GetKeyState("RButton", "P")
-{
-	Send, {RButton Down}
-
-	if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
-		RMBTimerGoing = 1
-		SetTimer, RMBSound, %RMBCoolDown%
-	}
+if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
+	RMBTimerGoing = 1
+	SetTimer, RMBSound, %RMBCoolDown%
 }
-Send {RButton Up}
 Return
 
 
