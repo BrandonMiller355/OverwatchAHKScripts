@@ -11,13 +11,13 @@ Hero := "Unassigned"
 ^0::
 ;battle.net password
 FileRead, BNetPass, BNetPassword.config
-Send %BNetPass%
+SendRaw %BNetPass%
 Return
 
 ^9::
 ;battle.net alt password
 FileRead, BNetPass, BNetPasswordAlt.config
-Send %BNetPass%
+SendRaw %BNetPass%
 Return
 
 ^G::
