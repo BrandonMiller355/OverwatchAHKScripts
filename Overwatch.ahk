@@ -20,6 +20,11 @@ FileRead, BNetPass, BNetPasswordAlt.config
 SendRaw %BNetPass%
 Return
 
+^8::
+;battle.net another alt password
+SendRaw jordan123
+Return
+
 ^G::
 Hero := "Genji"
 SoundPlay, %A_WorkingDir%\Audio\Genji.wav
@@ -129,7 +134,7 @@ Hero := "Reinhardt"
 SoundPlay, %A_WorkingDir%\Audio\Reinhardt.wav
 RCoolDown := 6500
 ;Also tricky. The duration of the charge is impossible to predict
-ShiftCoolDown := 11000
+ShiftCoolDown := 12000
 RMBCoolDown := -1
 Return
 
@@ -137,7 +142,7 @@ Return
 Hero := "Roadhog"
 SoundPlay, %A_WorkingDir%\Audio\Roadhog.wav
 ;This one's a little tricky as well. The duration of the chain depends on the distance of the target and whether it hits or not.
-ShiftCoolDown := 7500
+ShiftCoolDown := 9000
 RCoolDown := 9500
 RMBCoolDown := -1
 Return
@@ -178,7 +183,7 @@ Return
 Hero := "Mercy"
 SoundPlay, %A_WorkingDir%\Audio\Mercy.wav
 ShiftCoolDown := 2000
-RCoolDown := -1
+RCoolDown := 31000
 RMBCoolDown := -1
 Return
 
@@ -245,4 +250,55 @@ RMBSound:
 SetTimer, RMBSound, Off
 RMBTimerGoing = 0
 SoundPlay, %A_WorkingDir%\Audio\RMB.wav
+Return
+
+
+#-::
+SendRaw What the fuck did you just fucking say about me, you little bitch?
+Send {Enter}
+Sleep, 1000
+SendRaw I`'ll have you know I graduated top of my class in the Navy Seals, and I`'ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills.
+Send {Enter}
+Sleep, 1000
+SendRaw I am trained in gorilla warfare and I`'m the top sniper in the entire US armed forces.
+Send {Enter}
+Sleep, 1000
+SendRaw You are nothing to me but just another target.
+Send {Enter}
+Sleep, 1000
+SendRaw I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words.
+Send {Enter}
+Sleep, 1000
+SendRaw You think you can get away with saying that shit to me over the Internet?
+Send {Enter}
+Sleep, 1000
+SendRaw Think again, fucker.
+Send {Enter}
+Sleep, 1000
+SendRaw As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot.
+Send {Enter}
+Sleep, 1000
+SendRaw The storm that wipes out the pathetic little thing you call your life.
+Send {Enter}
+Sleep, 1000
+SendRaw You`'re fucking dead, kid.
+Send {Enter}
+Sleep, 1000
+SendRaw I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that`'s just with my bare hands.
+Send {Enter}
+Sleep, 1000
+SendRaw Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit.
+Send {Enter}
+Sleep, 1000
+SendRaw If only you could have known what unholy retribution your little `"clever`" comment was about to bring down upon you, maybe you would have held your fucking tongue.
+Send {Enter}
+Sleep, 1000
+SendRaw But you couldn`'t, you didn`'t, and now you`'re paying the price, you goddamn idiot.
+Send {Enter}
+Sleep, 1000
+SendRaw I will shit fury all over you and you will drown in it.
+Send {Enter}
+Sleep, 1000
+SendRaw You`'re fucking dead, kiddo.
+Send {Enter}
 Return
