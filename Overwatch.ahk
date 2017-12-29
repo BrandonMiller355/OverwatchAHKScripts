@@ -187,6 +187,15 @@ RCoolDown := 31000
 RMBCoolDown := -1
 Return
 
+;TODO: Come up with a better letter or something
+^!+N::
+Hero := "Moira"
+SoundPlay, %A_WorkingDir%\Audio\Mercy.wav
+ShiftCoolDown := 6750
+RCoolDown := 10000
+RMBCoolDown := -1
+Return
+
 ;TODO: Symmetra
 ;Symmetra is tricky due to the cooldown for placing turrets constantly charging
 
