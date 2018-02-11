@@ -20,9 +20,10 @@ FileRead, BNetPass, BNetPasswordAlt.config
 SendRaw %BNetPass%
 Return
 
-^8::
-;battle.net another alt password
-SendRaw jordan123
+^6::
+;battle.net another alt username
+FileRead, BNetUsername, BNetUsernameAlt2.config
+SendRaw %BNetUsername%
 Return
 
 ^G::
@@ -125,7 +126,7 @@ Return
 Hero := "D.Va"
 SoundPlay, %A_WorkingDir%\Audio\D.Va.wav
 ShiftCoolDown := 7000
-RCoolDown := -1
+RCoolDown := 8750
 RMBCoolDown := -1
 Return
 
