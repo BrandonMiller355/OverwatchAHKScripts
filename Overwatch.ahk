@@ -197,6 +197,14 @@ if (Hero == "Mercy") {
 	Return
 }
 
+^O::
+Hero := "Orisa"
+SoundPlay, %A_WorkingDir%\Audio\Orisa.wav
+ShiftCoolDown := 14000
+RCoolDown := 8000
+RMBCoolDown := 9000
+Return
+
 ;TODO: Symmetra
 ;Symmetra is tricky due to the cooldown for placing turrets constantly charging
 
