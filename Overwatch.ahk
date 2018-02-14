@@ -1,11 +1,15 @@
 #SingleInstance force
 #Persistent
+#MaxHotkeysPerInterval 70
+
 RMBTimerGoing = 0
 RTimerGoing = 0
 ShiftTimerGoing = 0
+SpaceTimerGoing = 0
 RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
+SpaceCoolDown := -1 ;For Lucio2 (lucio with right-click for jump)
 Hero := "Unassigned"
 
 ^0::
@@ -173,12 +177,24 @@ RMBCoolDown := -1
 Return
 
 ^L::
-Hero := "Lucio"
-SoundPlay, %A_WorkingDir%\Audio\Lucio.wav
-ShiftCoolDown := -1
-RCoolDown := 15000
-RMBCoolDown := 4000
-Return
+if (Hero == "Lucio") {
+	Hero := "Lucio2" ;Lucio2 uses right-click instead of space to jump
+	SoundPlay, %A_WorkingDir%\Audio\Lucio2.wav
+	ShiftCoolDown := -1
+	RCoolDown := 15000
+	RMBCoolDown := -1
+	SpaceCoolDown := 4000
+	Return
+} else {
+	Hero := "Lucio" 
+	SoundPlay, %A_WorkingDir%\Audio\Lucio.wav
+	ShiftCoolDown := -1
+	RCoolDown := 15000
+	RMBCoolDown := 4000
+	SpaceCoolDown := -1
+	Return
+}
+
 
 ^!+M::
 if (Hero == "Mercy") {
@@ -218,9 +234,6 @@ ShiftCoolDown := -1
 RMBCoolDown := -1
 Return
 
-#RButton::
-Hero := "AllowRightClick"
-Return
 
 
 ;Shift::
@@ -241,13 +254,17 @@ Return
 
 ;RMB
 RButton::
-if (Hero == "AllowRightClick") {
-	Send, {RButton}
-}
-
 if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
 	RMBTimerGoing = 1
 	SetTimer, RMBSound, %RMBCoolDown%
+}
+Return
+
+;Space (for Lucio2)
+~Space::
+if (SpaceCoolDown <> -1 and SpaceTimerGoing == 0) {
+	SpaceTimerGoing = 1
+	SetTimer, SpaceSound, %SpaceCoolDown%
 }
 Return
 
@@ -274,6 +291,11 @@ RMBTimerGoing = 0
 SoundPlay, %A_WorkingDir%\Audio\RMB.wav
 Return
 
+SpaceSound:
+SetTimer, SpaceSound, Off
+SpaceTimerGoing = 0
+SoundPlay, %A_WorkingDir%\Audio\Space.wav
+Return
 
 #-::
 SendRaw kWhat the fuck did you just fucking say about me, you little bitch?
