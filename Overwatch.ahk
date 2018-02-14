@@ -36,6 +36,7 @@ SoundPlay, %A_WorkingDir%\Audio\Genji.wav
 ShiftCoolDown := 8250
 RCoolDown := 9750
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^M::
@@ -44,6 +45,7 @@ SoundPlay, %A_WorkingDir%\Audio\McCree.wav
 ShiftCoolDown := 8250
 RCoolDown := 10250
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^P::
@@ -52,6 +54,7 @@ SoundPlay, %A_WorkingDir%\Audio\Pharah.wav
 ShiftCoolDown := 10000
 RCoolDown := 12000
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^R::
@@ -61,6 +64,7 @@ SoundPlay, %A_WorkingDir%\Audio\Reaper.wav
 ShiftCoolDown := 12000
 RCoolDown := 13000
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^S::
@@ -69,6 +73,7 @@ SoundPlay, %A_WorkingDir%\Audio\Soldier.wav
 ShiftCoolDown := -1
 RCoolDown := 20000
 RMBCoolDown := 8000
+SpaceCoolDown := -1
 Return
 
 ^!S::
@@ -77,6 +82,7 @@ SoundPlay, %A_WorkingDir%\Audio\Sombra.wav
 ShiftCoolDown := 12000
 RCoolDown := 7000
 RMBCoolDown := 13000
+SpaceCoolDown := -1
 Return
 
 ^T::
@@ -86,6 +92,7 @@ SoundPlay, %A_WorkingDir%\Audio\Tracer.wav
 ShiftCoolDown = 3000
 RCoolDown := 13250
 RMBCoolDown = 3000
+SpaceCoolDown := -1
 Return
 
 ;Bastion is not applicable as it does not have any cooldowns
@@ -96,6 +103,7 @@ SoundPlay, %A_WorkingDir%\Audio\Hanzo.wav
 ;Hanzo is also tricky, since you have to wait for him to fire the arrow before the timer starts
 ShiftCoolDown = 20000
 RCoolDown := 10000
+SpaceCoolDown := -1
 Return
 RMBCoolDown = 3000
 
@@ -105,6 +113,7 @@ SoundPlay, %A_WorkingDir%\Audio\Junkrat.wav
 ShiftCoolDown := 8000
 RCoolDown := 13000
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^!M::
@@ -113,6 +122,7 @@ SoundPlay, %A_WorkingDir%\Audio\Mei.wav
 ShiftCoolDown := 16000
 RCoolDown := 10500
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ;I have no idea how Torbjorn's armor works, I never play him.
@@ -124,6 +134,7 @@ SoundPlay, %A_WorkingDir%\Audio\Widowmaker.wav
 ShiftCoolDown := 13000
 RCoolDown := 16000
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^D::
@@ -132,6 +143,7 @@ SoundPlay, %A_WorkingDir%\Audio\D.Va.wav
 ShiftCoolDown := 7000
 RCoolDown := 8750
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^!R::
@@ -141,6 +153,7 @@ RCoolDown := 6500
 ;Also tricky. The duration of the charge is impossible to predict
 ShiftCoolDown := 12000
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^!+R::
@@ -150,6 +163,7 @@ SoundPlay, %A_WorkingDir%\Audio\Roadhog.wav
 ShiftCoolDown := 9000
 RCoolDown := 9500
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^!W::
@@ -158,6 +172,7 @@ SoundPlay, %A_WorkingDir%\Audio\Winston.wav
 ShiftCoolDown := 6000
 RCoolDown := 19000
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^Z::
@@ -166,6 +181,7 @@ SoundPlay, %A_WorkingDir%\Audio\Zarya.wav
 ShiftCoolDown := 12000
 RCoolDown := 10000
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^A::
@@ -174,6 +190,7 @@ SoundPlay, %A_WorkingDir%\Audio\Ana.wav
 ShiftCoolDown := 12500
 RCoolDown := 10500
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 ^L::
@@ -203,6 +220,7 @@ if (Hero == "Mercy") {
 	ShiftCoolDown := 6750
 	RCoolDown := 10000
 	RMBCoolDown := -1
+	SpaceCoolDown := -1
 	Return
 } else {
 	Hero := "Mercy"
@@ -210,6 +228,7 @@ if (Hero == "Mercy") {
 	ShiftCoolDown := 2000
 	RCoolDown := 31000
 	RMBCoolDown := -1
+	SpaceCoolDown := -1
 	Return
 }
 
@@ -219,6 +238,7 @@ SoundPlay, %A_WorkingDir%\Audio\Orisa.wav
 ShiftCoolDown := 14000
 RCoolDown := 8000
 RMBCoolDown := 9000
+SpaceCoolDown := -1
 Return
 
 ;TODO: Symmetra
