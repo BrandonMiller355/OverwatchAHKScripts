@@ -232,6 +232,7 @@ SoundPlay, %A_WorkingDir%\Audio\Unassigned.wav
 RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
+SpaceCoolDown := -1
 Return
 
 
