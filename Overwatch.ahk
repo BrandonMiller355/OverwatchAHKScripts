@@ -10,6 +10,7 @@ RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
 SpaceCoolDown := -1 ;For Lucio2 (lucio with right-click for jump)
+InitialButtonPressed := 0   ;For actions that require multiple buttons, e.g. mei wall, moira orbs, scatter arrows
 Hero := "Unassigned"
 
 ^0::
@@ -267,18 +268,41 @@ Return
 
 ;r::
 XButton2::
-if (RCoolDown <> -1 and RTimerGoing == 0) {
-	RTimerGoing = 1
-	SetTimer, RSound, %RCoolDown%
+if (Hero == "Moira") {
+	InitialButtonPressed := 1
+} else {
+	if (RCoolDown <> -1 and RTimerGoing == 0) {
+		RTimerGoing = 1
+		SetTimer, RSound, %RCoolDown%
+	}
 }
 Return
 
 ;RMB
 RButton::
-if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
-	RMBTimerGoing = 1
-	SetTimer, RMBSound, %RMBCoolDown%
+if (Hero == "AllowRightClick") {
+	Send, {RButton}
+} else if (Hero == "Moira") {
+	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
+		RTimerGoing = 1
+		SetTimer, RSound, %RCoolDown%
+	} ;else do nothing
+} else {
+	if (RMBCoolDown <> -1 and RMBTimerGoing == 0) {
+		RMBTimerGoing = 1
+		SetTimer, RMBSound, %RMBCoolDown%
+	}
 }
+Return
+
+;LMB (for secondary button presses)
+LButton::
+if (Hero == "Moira") {
+	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
+		RTimerGoing = 1
+		SetTimer, RSound, %RCoolDown%
+	} ;else do nothing
+} ;else do nothing
 Return
 
 ;Space (for Lucio2)
@@ -287,6 +311,10 @@ if (SpaceCoolDown <> -1 and SpaceTimerGoing == 0) {
 	SpaceTimerGoing = 1
 	SetTimer, SpaceSound, %SpaceCoolDown%
 }
+Return
+
+#RButton::
+Hero := "AllowRightClick"
 Return
 
 
