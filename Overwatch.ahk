@@ -2,6 +2,14 @@
 #Persistent
 #MaxHotkeysPerInterval 70
 
+;TODO: 
+;Add more secondary actions (X-Moira, Hanzo, Mei)
+;Make all hero switches with multiple heroes be toggles
+;Moira can fire an orb if the left or right-click is currently being held, this isn't currently accounted for
+;Potentially read pixels on the screen while playing windowed mode to determine when cooldowns are up (prolly have to play windowed mode)
+;Potentially overlay Shift and R icons over game when the cooldowns are up (prolly have to play windowed mode)
+;Make space timer not fire when typing
+
 RMBTimerGoing = 0
 RTimerGoing = 0
 ShiftTimerGoing = 0
@@ -266,10 +274,20 @@ if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
 }
 Return
 
-;r::
+;R::
 XButton2::
-if (Hero == "Moira") {
-	InitialButtonPressed := 1
+if (Hero == "Moira" or Hero == "Hanzo") {
+	GetKeyState, LDown, LButton
+	GetKeyState, RDown, RButton
+	if (LDown == D or RDown == D and RCoolDown <> -1 and RTimerGoing == 0) {
+		RTimerGoing = 1
+		InitialButtonPressed := 0
+		SetTimer, RSound, %RCoolDown%
+	} else if (InitialButtonPressed == 1) {
+		InitialButtonPressed := 0
+	} else if (InitialButtonPressed == 0) {
+		InitialButtonPressed := 1
+	}
 } else {
 	if (RCoolDown <> -1 and RTimerGoing == 0) {
 		RTimerGoing = 1
@@ -295,14 +313,15 @@ if (Hero == "AllowRightClick") {
 }
 Return
 
-;LMB (for secondary button presses)
-LButton::
-if (Hero == "Moira") {
+;LMB Up
+~LButton Up::
+if (Hero == "Moira" or Hero == "Hanzo") {
 	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
 		RTimerGoing = 1
 		SetTimer, RSound, %RCoolDown%
+		InitialButtonPressed := 0
 	} ;else do nothing
-} ;else do nothing
+}
 Return
 
 ;Space (for Lucio2)
@@ -312,6 +331,12 @@ if (SpaceCoolDown <> -1 and SpaceTimerGoing == 0) {
 	SetTimer, SpaceSound, %SpaceCoolDown%
 }
 Return
+
+;T (for cancelling secondary button)
+T Up::
+if (Hero == "Hanzo") {
+	InitialButtonPressed := 0
+}
 
 #RButton::
 Hero := "AllowRightClick"
