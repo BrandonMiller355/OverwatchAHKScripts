@@ -46,6 +46,7 @@ ShiftCoolDown := 8250
 RCoolDown := 9750
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^M::
@@ -55,6 +56,7 @@ ShiftCoolDown := 8250
 RCoolDown := 10250
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^P::
@@ -64,6 +66,7 @@ ShiftCoolDown := 10000
 RCoolDown := 12000
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^R::
@@ -74,6 +77,7 @@ ShiftCoolDown := 12000
 RCoolDown := 13000
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^S::
@@ -83,6 +87,7 @@ ShiftCoolDown := -1
 RCoolDown := 20000
 RMBCoolDown := 8000
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^!S::
@@ -92,6 +97,7 @@ ShiftCoolDown := 12000
 RCoolDown := 7000
 RMBCoolDown := 13000
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^T::
@@ -102,6 +108,7 @@ ShiftCoolDown = 3000
 RCoolDown := 13250
 RMBCoolDown = 3000
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ;Bastion is not applicable as it does not have any cooldowns
@@ -113,6 +120,7 @@ SoundPlay, %A_WorkingDir%\Audio\Hanzo.wav
 ShiftCoolDown = 20000
 RCoolDown := 10000
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 RMBCoolDown = 3000
 
@@ -123,6 +131,7 @@ ShiftCoolDown := 8000
 RCoolDown := 13000
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^!M::
@@ -132,6 +141,7 @@ ShiftCoolDown := 16000
 RCoolDown := 10500
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ;I have no idea how Torbjorn's armor works, I never play him.
@@ -144,6 +154,7 @@ ShiftCoolDown := 13000
 RCoolDown := 16000
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^D::
@@ -153,6 +164,7 @@ ShiftCoolDown := 7000
 RCoolDown := 8750
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^!R::
@@ -163,6 +175,7 @@ RCoolDown := 6500
 ShiftCoolDown := 12000
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^!+R::
@@ -173,6 +186,7 @@ ShiftCoolDown := 9000
 RCoolDown := 9500
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^!W::
@@ -182,6 +196,7 @@ ShiftCoolDown := 6000
 RCoolDown := 19000
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^Z::
@@ -191,6 +206,7 @@ ShiftCoolDown := 12000
 RCoolDown := 10000
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^A::
@@ -200,6 +216,7 @@ ShiftCoolDown := 12500
 RCoolDown := 10500
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ^L::
@@ -210,6 +227,7 @@ if (Hero == "Lucio") {
 	RCoolDown := 15000
 	RMBCoolDown := -1
 	SpaceCoolDown := 4000
+	InitialButtonPressed := 0
 	Return
 } else {
 	Hero := "Lucio" 
@@ -218,6 +236,7 @@ if (Hero == "Lucio") {
 	RCoolDown := 15000
 	RMBCoolDown := 4000
 	SpaceCoolDown := -1
+	InitialButtonPressed := 0
 	Return
 }
 
@@ -230,6 +249,7 @@ if (Hero == "Mercy") {
 	RCoolDown := 10000
 	RMBCoolDown := -1
 	SpaceCoolDown := -1
+	InitialButtonPressed := 0
 	Return
 } else {
 	Hero := "Mercy"
@@ -238,6 +258,7 @@ if (Hero == "Mercy") {
 	RCoolDown := 31000
 	RMBCoolDown := -1
 	SpaceCoolDown := -1
+	InitialButtonPressed := 0
 	Return
 }
 
@@ -248,6 +269,7 @@ ShiftCoolDown := 14000
 RCoolDown := 8000
 RMBCoolDown := 9000
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 ;TODO: Symmetra
@@ -262,6 +284,7 @@ RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
 SpaceCoolDown := -1
+InitialButtonPressed := 0
 Return
 
 
@@ -279,10 +302,8 @@ XButton2::
 if (Hero == "Moira" or Hero == "Hanzo") {
 	GetKeyState, LDown, LButton
 	GetKeyState, RDown, RButton
-	if (LDown == D or RDown == D and RCoolDown <> -1 and RTimerGoing == 0) {
-		RTimerGoing = 1
+	if (LDown == D or RDown == D) {
 		InitialButtonPressed := 0
-		SetTimer, RSound, %RCoolDown%
 	} else if (InitialButtonPressed == 1) {
 		InitialButtonPressed := 0
 	} else if (InitialButtonPressed == 0) {
@@ -316,6 +337,17 @@ Return
 ;LMB Up
 ~LButton Up::
 if (Hero == "Moira" or Hero == "Hanzo") {
+	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
+		RTimerGoing = 1
+		SetTimer, RSound, %RCoolDown%
+		InitialButtonPressed := 0
+	} ;else do nothing
+}
+Return
+
+;RMB Up
+~RButton Up::
+if (Hero == "Moira") {
 	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
 		RTimerGoing = 1
 		SetTimer, RSound, %RCoolDown%
