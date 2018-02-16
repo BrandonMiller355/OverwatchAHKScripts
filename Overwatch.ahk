@@ -4,11 +4,13 @@
 
 ;TODO: 
 ;Add more secondary actions (X-Moira, Hanzo, Mei)
+;Make T button cancel arrows and not start the timer when they release LMB on Hanzo
 ;Make all hero switches with multiple heroes be toggles
 ;Moira can fire an orb if the left or right-click is currently being held, this isn't currently accounted for
 ;Potentially read pixels on the screen while playing windowed mode to determine when cooldowns are up (prolly have to play windowed mode)
 ;Potentially overlay Shift and R icons over game when the cooldowns are up (prolly have to play windowed mode)
 ;Make space timer not fire when typing
+;Add DoomFist support
 
 RMBTimerGoing = 0
 RTimerGoing = 0
@@ -18,7 +20,8 @@ RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
 SpaceCoolDown := -1 ;For Lucio2 (lucio with right-click for jump)
-InitialButtonPressed := 0   ;For actions that require multiple buttons, e.g. mei wall, moira orbs, scatter arrows
+InitialButtonPressedR := 0   ;For actions that require multiple buttons, e.g. mei wall, moira orbs, scatter arrows
+InitialButtonPressedShift := 0   ;For actions that require multiple buttons, e.g. mei wall, moira orbs, scatter arrows
 Hero := "Unassigned"
 
 ^0::
@@ -46,7 +49,8 @@ ShiftCoolDown := 8250
 RCoolDown := 9750
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^M::
@@ -56,7 +60,8 @@ ShiftCoolDown := 8250
 RCoolDown := 10250
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^P::
@@ -66,7 +71,8 @@ ShiftCoolDown := 10000
 RCoolDown := 12000
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^R::
@@ -77,7 +83,8 @@ ShiftCoolDown := 12000
 RCoolDown := 13000
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^S::
@@ -87,7 +94,8 @@ ShiftCoolDown := -1
 RCoolDown := 20000
 RMBCoolDown := 8000
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^!S::
@@ -97,7 +105,8 @@ ShiftCoolDown := 12000
 RCoolDown := 7000
 RMBCoolDown := 13000
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^T::
@@ -108,7 +117,8 @@ ShiftCoolDown = 3000
 RCoolDown := 13250
 RMBCoolDown = 3000
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ;Bastion is not applicable as it does not have any cooldowns
@@ -120,7 +130,8 @@ SoundPlay, %A_WorkingDir%\Audio\Hanzo.wav
 ShiftCoolDown = 20000
 RCoolDown := 10000
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 RMBCoolDown = 3000
 
@@ -131,7 +142,8 @@ ShiftCoolDown := 8000
 RCoolDown := 13000
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^!M::
@@ -141,7 +153,8 @@ ShiftCoolDown := 16000
 RCoolDown := 10500
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ;I have no idea how Torbjorn's armor works, I never play him.
@@ -154,7 +167,8 @@ ShiftCoolDown := 13000
 RCoolDown := 16000
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^D::
@@ -164,7 +178,8 @@ ShiftCoolDown := 7000
 RCoolDown := 8750
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^!R::
@@ -175,7 +190,8 @@ RCoolDown := 6500
 ShiftCoolDown := 12000
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^!+R::
@@ -186,7 +202,8 @@ ShiftCoolDown := 9000
 RCoolDown := 9500
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^!W::
@@ -196,7 +213,8 @@ ShiftCoolDown := 6000
 RCoolDown := 19000
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^Z::
@@ -206,7 +224,8 @@ ShiftCoolDown := 12000
 RCoolDown := 10000
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^A::
@@ -216,7 +235,8 @@ ShiftCoolDown := 12500
 RCoolDown := 10500
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ^L::
@@ -227,7 +247,8 @@ if (Hero == "Lucio") {
 	RCoolDown := 15000
 	RMBCoolDown := -1
 	SpaceCoolDown := 4000
-	InitialButtonPressed := 0
+	InitialButtonPressedR := 0
+	InitialButtonPressedShift := 0
 	Return
 } else {
 	Hero := "Lucio" 
@@ -236,7 +257,8 @@ if (Hero == "Lucio") {
 	RCoolDown := 15000
 	RMBCoolDown := 4000
 	SpaceCoolDown := -1
-	InitialButtonPressed := 0
+	InitialButtonPressedR := 0
+	InitialButtonPressedShift := 0
 	Return
 }
 
@@ -249,7 +271,8 @@ if (Hero == "Mercy") {
 	RCoolDown := 10000
 	RMBCoolDown := -1
 	SpaceCoolDown := -1
-	InitialButtonPressed := 0
+	InitialButtonPressedR := 0
+	InitialButtonPressedShift := 0
 	Return
 } else {
 	Hero := "Mercy"
@@ -258,7 +281,8 @@ if (Hero == "Mercy") {
 	RCoolDown := 31000
 	RMBCoolDown := -1
 	SpaceCoolDown := -1
-	InitialButtonPressed := 0
+	InitialButtonPressedR := 0
+	InitialButtonPressedShift := 0
 	Return
 }
 
@@ -269,7 +293,8 @@ ShiftCoolDown := 14000
 RCoolDown := 8000
 RMBCoolDown := 9000
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 ;TODO: Symmetra
@@ -284,16 +309,28 @@ RCoolDown := -1
 ShiftCoolDown := -1
 RMBCoolDown := -1
 SpaceCoolDown := -1
-InitialButtonPressed := 0
+InitialButtonPressedR := 0
+InitialButtonPressedShift := 0
 Return
 
 
 
 ;Shift::
 XButton1::
-if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
-	ShiftTimerGoing = 1
-	SetTimer, ShiftSound, %ShiftCoolDown%
+if (Hero == "Hanzo") {
+	GetKeyState, LDown, LButton
+	if (LDown == D) {
+		InitialButtonPressedShift := 0
+	} else if (InitialButtonPressedShift == 1) {
+		InitialButtonPressedShift := 0
+	} else if (InitialButtonPressedShift == 0) {
+		InitialButtonPressedShift := 1
+	}
+} else {
+	if (ShiftCoolDown <> -1 and ShiftTimerGoing == 0) { ;then don't do it
+		ShiftTimerGoing = 1
+		SetTimer, ShiftSound, %ShiftCoolDown%
+	}
 }
 Return
 
@@ -303,11 +340,11 @@ if (Hero == "Moira" or Hero == "Hanzo") {
 	GetKeyState, LDown, LButton
 	GetKeyState, RDown, RButton
 	if (LDown == D or RDown == D) {
-		InitialButtonPressed := 0
-	} else if (InitialButtonPressed == 1) {
-		InitialButtonPressed := 0
-	} else if (InitialButtonPressed == 0) {
-		InitialButtonPressed := 1
+		InitialButtonPressedR := 0
+	} else if (InitialButtonPressedR == 1) {
+		InitialButtonPressedR := 0
+	} else if (InitialButtonPressedR == 0) {
+		InitialButtonPressedR := 1
 	}
 } else {
 	if (RCoolDown <> -1 and RTimerGoing == 0) {
@@ -322,7 +359,7 @@ RButton::
 if (Hero == "AllowRightClick") {
 	Send, {RButton}
 } else if (Hero == "Moira") {
-	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
+	if (InitialButtonPressedR == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
 		RTimerGoing = 1
 		SetTimer, RSound, %RCoolDown%
 	} ;else do nothing
@@ -337,24 +374,37 @@ Return
 ;LMB Up
 ~LButton Up::
 if (Hero == "Moira" or Hero == "Hanzo") {
-	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
+	if (InitialButtonPressedR == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
 		RTimerGoing = 1
 		SetTimer, RSound, %RCoolDown%
-		InitialButtonPressed := 0
-	} ;else do nothing
+		InitialButtonPressedR := 0
+	} else if (InitialButtonPressedShift == 1 and ShiftCoolDown <> -1 and ShiftTimerGoing == 0) {
+		ShiftTimerGoing = 1
+		SetTimer, ShiftSound, %ShiftCoolDown%
+		InitialButtonPressedShift := 0
+	}
 }
 Return
 
 ;RMB Up
 ~RButton Up::
 if (Hero == "Moira") {
-	if (InitialButtonPressed == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
+	if (InitialButtonPressedR == 1 and RCoolDown <> -1 and RTimerGoing == 0) {
 		RTimerGoing = 1
 		SetTimer, RSound, %RCoolDown%
-		InitialButtonPressed := 0
+		InitialButtonPressedR := 0
 	} ;else do nothing
 }
 Return
+
+;T (for cancelling Hanzo arrow)
+;~T Up::
+;if (Hero == "Hanzo") {
+;	GetKeyState, LDown, LButton
+;	if (LDown == D or RDown == D) {
+;		ArrowNotGoing := 1
+;	}
+;}
 
 ;Space (for Lucio2)
 ~Space::
@@ -363,12 +413,6 @@ if (SpaceCoolDown <> -1 and SpaceTimerGoing == 0) {
 	SetTimer, SpaceSound, %SpaceCoolDown%
 }
 Return
-
-;T (for cancelling secondary button)
-T Up::
-if (Hero == "Hanzo") {
-	InitialButtonPressed := 0
-}
 
 #RButton::
 Hero := "AllowRightClick"
