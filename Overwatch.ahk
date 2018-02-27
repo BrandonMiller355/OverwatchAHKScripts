@@ -3,7 +3,8 @@
 #MaxHotkeysPerInterval 70
 
 ;TODO: 
-;Add more secondary actions (X-Moira, Hanzo, Mei)
+;Fix bug on heroes with secondary actions where if they hit R while holding mouse button and then keep holding the button, it doesn't trigger R timer
+;Add more secondary actions (X-Moira, X-Hanzo, Mei)
 ;Make T button cancel arrows and not start the timer when they release LMB on Hanzo
 ;Make all hero switches with multiple heroes be toggles
 ;Moira can fire an orb if the left or right-click is currently being held, this isn't currently accounted for
@@ -291,7 +292,7 @@ Hero := "Orisa"
 SoundPlay, %A_WorkingDir%\Audio\Orisa.wav
 ShiftCoolDown := 14000
 RCoolDown := 8000
-RMBCoolDown := 9000
+RMBCoolDown := 11000
 SpaceCoolDown := -1
 InitialButtonPressedR := 0
 InitialButtonPressedShift := 0
@@ -404,6 +405,7 @@ Return
 ;	if (LDown == D or RDown == D) {
 ;		ArrowNotGoing := 1
 ;	}
+;	Send, T
 ;}
 
 ;Space (for Lucio2)
