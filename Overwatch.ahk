@@ -498,3 +498,8 @@ Sleep, 1000
 SendRaw kYou`'re fucking dead, kiddo.
 Send {Enter}
 Return
+
+^F1::
+Run,C:\Program Files (x86)\foobar2000\foobar2000.exe "%A_WorkingDir%\Audio\McCree\McCree54321.mp3",,Hide
+SoundPlay, %A_WorkingDir%\Audio\McCree\McCree54321.mp3
+Return
