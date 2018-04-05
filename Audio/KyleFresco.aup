@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="KyleFresco_data" version="1.3.0" audacityversion="2.2.1" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="50.8170114437" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="KyleFresco" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="310679">
+				<waveblock start="0">
+					<simpleblockfile filename="e000030d.au" len="155339" min="-0.749946" max="0.669383" rms="0.082664"/>
+				</waveblock>
+				<waveblock start="155339">
+					<simpleblockfile filename="e00008ae.au" len="155340" min="-0.588645" max="0.582263" rms="0.088821"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="KyleFresco" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="310679">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000a20.au" len="155339" min="-0.762369" max="0.66134" rms="0.078889"/>
+				</waveblock>
+				<waveblock start="155339">
+					<simpleblockfile filename="e0000ccd.au" len="155340" min="-0.542139" max="0.565196" rms="0.086991"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
